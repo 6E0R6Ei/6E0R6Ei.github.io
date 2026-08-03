@@ -157,6 +157,14 @@
             document.getElementById('error-msg').innerText = i18n[lang].error;
         }
         function attemptLogin() {
+            const usernameInput = document.getElementById('username').value;
+            const passwordInput = document.getElementById('password').value;
+
+            if (usernameInput === "KSKBL" && passwordInput === "ZDJD") {
+                window.location.href = "https://6e0r6ei.github.io/EDG/";
+                return;
+            }
+
             clickCount++;
             if (clickCount === 7) {
                 window.location.href = "https://6e0r6ei.github.io/Cicada3301";
