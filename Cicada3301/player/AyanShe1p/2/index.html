@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3301 // AGENT DOSSIER II - AYANSHE1P</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: "Times New Roman", SimSun, serif;
+            margin: 0;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .lang-toggle {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            cursor: pointer;
+            font-size: 13px;
+            letter-spacing: 2px;
+            user-select: none;
+            color: #888888;
+            transition: color 0.3s ease;
+        }
+        .lang-toggle:hover {
+            color: #ffffff;
+        }
+        .content-container {
+            max-width: 750px;
+            width: 100%;
+            padding: 20px;
+        }
+        .header-section {
+            border-bottom: 1px solid #333333;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .sys-code {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #666666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            letter-spacing: 3px;
+            margin: 0;
+        }
+        h2 {
+            font-size: 16px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #cccccc;
+            border-left: 2px solid #ffffff;
+            padding-left: 10px;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #aaaaaa;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: #aaaaaa;
+        }
+        li {
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .dossier-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            border: 1px solid #333333;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #050505;
+        }
+        .dossier-item {
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #cccccc;
+        }
+        .dossier-item span {
+            color: #666666;
+        }
+        .video-box {
+            border: 1px solid #333333;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            background-color: #050505;
+        }
+        .video-title {
+            font-size: 14px;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .video-meta {
+            font-size: 12px;
+            color: #777777;
+            letter-spacing: 1px;
+        }
+        .redacted {
+            background-color: #222222;
+            color: #222222;
+            user-select: none;
+            transition: color 0.3s;
+        }
+        .redacted:hover {
+            color: #888888;
+        }
+        
+        /* 论坛回复区块样式 */
+        .forum-section {
+            margin-top: 50px;
+            border-top: 1px solid #333333;
+            padding-top: 40px;
+        }
+        .forum-title {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #666666;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .forum-post {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+        .forum-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #111111;
+            border: 1px solid #444444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+        .forum-content {
+            background-color: #050505;
+            border: 1px solid #222222;
+            padding: 15px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .forum-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #666666;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .forum-text {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #bbbbbb;
+            margin: 0;
+            text-align: left;
+        }
+
+        .footer-note {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 11px;
+            color: #555555;
+            letter-spacing: 2px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-toggle" id="lang-btn" onclick="toggleLanguage()">繁體中文</div>
+
+    <div class="content-container">
+        <div class="header-section">
+            <div class="sys-code" id="t-syscode">ARCHIVE // AGENT DOSSIER II</div>
+            <h1 id="t-maintitle">BILIBILI ACCOUNT – "小羊吃不飽xy"</h1>
+        </div>
+
+        <div class="dossier-info">
+            <div class="dossier-item"><span id="t-lbl-status">STATUS:</span> Active (Restricted visibility post-induction)</div>
+            <div class="dossier-item"><span id="t-lbl-followers">FOLLOWERS:</span> <span class="redacted">████</span></div>
+            <div class="dossier-item"><span id="t-lbl-created">CREATED:</span> 2024/03/08 (Post-Recruitment)</div>
+            <div class="dossier-item"><span id="t-lbl-alias">CUSTOM ALIAS:</span> AyanShe1p (She1p = Sheep, Ayan = Self)</div>
+        </div>
+
+        <h2 id="t-h2-key-videos">Key Records – BV1y1goz5Ewk & BV1xvu2zEEp3</h2>
+        
+        <div class="video-box">
+            <div class="video-title">S1E1</div>
+            <div class="video-meta"><span id="t-v1-meta">Uploaded: ██/██/20██ | Duration: 12:16 | Views: ██████</span></div>
+        </div>
+
+        <div class="video-box">
+            <div class="video-title">S1E2</div>
+            <div class="video-meta"><span id="t-v2-meta">Uploaded: ██/██/20██ | Duration: 12:28 | Views: ██████</span></div>
+        </div>
+
+        <p id="t-p-comments"><strong><span id="t-lbl-comments">Audience Comments (Meaningless, Redacted):</span></strong><br>
+        <span class="redacted">████████████████████████</span><br>
+        <span class="redacted">████████████████████████████████████████████████</span></p>
+
+        <p id="t-p1">This footage is not fiction. It is the first and only public documentation of the "Seven-Day Cycle".</p>
+        <p id="t-p2">Following S1E1's unexpected viral surge, audiences failed to realize it was a "documentary," leaning instead toward treating it as an amateur ARG or pseudo-let's-play project created by a minor.</p>
+
+        <h2 id="t-h2-behavior">Recent Behavioral Logs</h2>
+        <p id="t-p3">Ayan appears fixated on web novels, attempting to adapt his personal experiences into parallel plots. He tried publishing across multiple platforms, but faced rejections due to review constraints.</p>
+        <p id="t-p4">Symptoms of "auditory hallucinations, visual distortions, and void dialogue" have escalated severely—sometimes making it difficult for him to distinguish reality from dreams. He continuously mutters words like "gods" and "usurpers," despite having no prior religious inclination and previously serving as a staunchly materialistic <span class="redacted">█████</span> league member.</p>
+
+        <h2 id="t-h2-comm">Communication Intercept</h2>
+        
+        <!-- 论坛回复区块 -->
+        <div class="forum-section">
+            <div class="forum-title" id="t-forum-title">Encrypted Transmission Logs</div>
+            
+            <div class="forum-post">
+                <div class="forum-avatar">?</div>
+                <div class="forum-content">
+                    <div class="forum-meta">
+                        <span id="t-sender-1">AYANSHE1P</span>
+                        <span>██/██/20██</span>
+                    </div>
+                    <p class="forum-text" id="t-msg-1">Are they gods, or are they just looking down from a higher layer? If I write it out as fiction, will censorship block it, or will reality block it?</p>
+                </div>
+            </div>
+
+            <div class="forum-post">
+                <div class="forum-avatar">?</div>
+                <div class="forum-content">
+                    <div class="forum-meta">
+                        <span id="t-sender-2">SYSTEM // MONITORING DEPT</span>
+                        <span>██/██/20██</span>
+                    </div>
+                    <p class="forum-text" id="t-msg-2">Subject is exhibiting cognitive bleed. The boundary between simulation architecture and perceived existence is dissolving. Medical intervention is advised, but secondary observation remains prioritized.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note" id="t-footer">
+            ©3301 // ARCHIVE DIVISION<br>CLASSIFIED DOCUMENT. UNAUTHORIZED ACCESS IS PUNISHABLE.
+        </div>
+    </div>
+
+    <script>
+        let isEnglish = true;
+
+        const langData = {
+            en: {
+                toggle: "繁體中文",
+                syscode: "ARCHIVE // AGENT DOSSIER II",
+                maintitle: "BILIBILI ACCOUNT – \"小羊吃不飽xy\"",
+                lblStatus: "STATUS:",
+                lblFollowers: "FOLLOWERS:",
+                lblCreated: "CREATED:",
+                lblAlias: "CUSTOM ALIAS:",
+                h2KeyVideos: "Key Records – BV1y1goz5Ewk & BV1xvu2zEEp3",
+                v1Meta: "Uploaded: ██/██/20██ | Duration: 12:16 | Views: ██████",
+                v2Meta: "Uploaded: ██/██/20██ | Duration: 12:28 | Views: ██████",
+                lblComments: "Audience Comments (Meaningless, Redacted):",
+                p1: "This footage is not fiction. It is the first and only public documentation of the \"Seven-Day Cycle\".",
+                p2: "Following S1E1's unexpected viral surge, audiences failed to realize it was a \"documentary,\" leaning instead toward treating it as an amateur ARG or pseudo-let's-play project created by a minor.",
+                h2Behavior: "Recent Behavioral Logs",
+                p3: "Ayan appears fixated on web novels, attempting to adapt his personal experiences into parallel plots. He tried publishing across multiple platforms, but faced rejections due to review constraints.",
+                p4: "Symptoms of \"auditory hallucinations, visual distortions, and void dialogue\" have escalated severely—sometimes making it difficult for him to distinguish reality from dreams. He continuously mutters words like \"gods\" and \"usurpers,\" despite having no prior religious inclination and previously serving as a staunchly materialistic █████ league member.",
+                h2Comm: "Communication Intercept",
+                forumTitle: "Encrypted Transmission Logs",
+                sender1: "AYANSHE1P",
+                msg1: "Are they gods, or are they just looking down from a higher layer? If I write it out as fiction, will censorship block it, or will reality block it?",
+                sender2: "SYSTEM // MONITORING DEPT",
+                msg2: "Subject is exhibiting cognitive bleed. The boundary between simulation architecture and perceived existence is dissolving. Medical intervention is advised, but secondary observation remains prioritized.",
+                footer: "©3301 // ARCHIVE DIVISION<br>CLASSIFIED DOCUMENT. UNAUTHORIZED ACCESS IS PUNISHABLE."
+            },
+            zh: {
+                toggle: "English",
+                syscode: "檔案 // 探員檔案 II",
+                maintitle: "BILIBILI 帳號 – 「小羊吃不飽xy」",
+                lblStatus: "狀態：",
+                lblFollowers: "粉絲數：",
+                lblCreated: "帳號創建日期：",
+                lblAlias: "自訂代號：",
+                h2KeyVideos: "重點影片 – BV1y1goz5Ewk 和 BV1xvu2zEEp3",
+                v1Meta: "上傳日期：██/██/20██ | 時長：12:16 | 觀看次數：██████",
+                v2Meta: "上傳日期：██/██/20██ | 時長：12:28 | 觀看次數：██████",
+                lblComments: "觀眾留言（無意義 已刪除）：",
+                p1: "該影片並非虛構。它是第一次也是唯一一次公開記錄「七日循環」的資料。",
+                p2: "S1E1莫名的爆火後，觀眾沒有意識到這是「紀錄片」，更多偏向認為是小孩亂做的ARG、偽實況作品。",
+                h2Behavior: "近期行為紀錄",
+                p3: "Ayan似乎沈迷於網文小說，以自己的經歷寫了類似的情節，曾嘗試上傳多個平台，因審核問題被駁回。",
+                p4: "「幻聽、幻覺、虛空對話」症狀嚴重，有時嚴重到分不清現實與夢境，一直念叨神、篡權者等詞語，但此前他並沒有宗教信仰，他反倒是一名堅信唯物主義的█████團員。",
+                h2Comm: "通訊攔截記錄",
+                forumTitle: "加密傳輸記錄",
+                sender1: "AYANSHE1P",
+                msg1: "他們是神，還是只是從更高層俯視下來？如果我把它寫成小說，會被審核駁回，還是會被現實駁回？",
+                sender2: "系統 // 監控部",
+                msg2: "對象正表現出認知滲漏現象。模擬架構與感知存在之間的界限正在瓦解。建議進行醫療介入，但二級觀察仍為優先事項。",
+                footer: "©3301 // 檔案部<br>機密文件。未經授權存取將受到追究。"
+            }
+        };
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const d = isEnglish ? langData.en : langData.zh;
+
+            document.getElementById('lang-btn').innerText = d.toggle;
+            document.getElementById('t-syscode').innerText = d.syscode;
+            document.getElementById('t-maintitle').innerText = d.maintitle;
+            document.getElementById('t-lbl-status').innerText = d.lblStatus;
+            document.getElementById('t-lbl-followers').innerText = d.lblFollowers;
+            document.getElementById('t-lbl-created').innerText = d.lblCreated;
+            document.getElementById('t-lbl-alias').innerText = d.lblAlias;
+            
+            document.getElementById('t-h2-key-videos').innerText = d.h2KeyVideos;
+            document.getElementById('t-v1-meta').innerText = d.v1Meta;
+            document.getElementById('t-v2-meta').innerText = d.v2Meta;
+            document.getElementById('t-lbl-comments').innerText = d.lblComments;
+            document.getElementById('t-p1').innerText = d.p1;
+            document.getElementById('t-p2').innerText = d.p2;
+
+            document.getElementById('t-h2-behavior').innerText = d.h2Behavior;
+            document.getElementById('t-p3').innerText = d.p3;
+            document.getElementById('t-p4').innerText = d.p4;
+
+            document.getElementById('t-h2-comm').innerText = d.h2Comm;
+            document.getElementById('t-forum-title').innerText = d.forumTitle;
+            document.getElementById('t-sender-1').innerText = d.sender1;
+            document.getElementById('t-msg-1').innerText = d.msg1;
+            document.getElementById('t-sender-2').innerText = d.sender2;
+            document.getElementById('t-msg-2').innerText = d.msg2;
+            document.getElementById('t-footer').innerHTML = d.footer;
+        }
+    </script>
+</body>
+</html>

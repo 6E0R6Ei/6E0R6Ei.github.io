@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3301 // AGENT DOSSIER - AYAN</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: "Times New Roman", SimSun, serif;
+            margin: 0;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .lang-toggle {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            cursor: pointer;
+            font-size: 13px;
+            letter-spacing: 2px;
+            user-select: none;
+            color: #888888;
+            transition: color 0.3s ease;
+        }
+        .lang-toggle:hover {
+            color: #ffffff;
+        }
+        .content-container {
+            max-width: 750px;
+            width: 100%;
+            padding: 20px;
+        }
+        .header-section {
+            border-bottom: 1px solid #333333;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .sys-code {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #666666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            letter-spacing: 3px;
+            margin: 0;
+        }
+        h2 {
+            font-size: 16px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #cccccc;
+            border-left: 2px solid #ffffff;
+            padding-left: 10px;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #aaaaaa;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: #aaaaaa;
+        }
+        li {
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .dossier-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            border: 1px solid #333333;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #050505;
+        }
+        .dossier-item {
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #cccccc;
+        }
+        .dossier-item span {
+            color: #666666;
+        }
+        blockquote {
+            border-left: 1px solid #555555;
+            margin: 20px 0;
+            padding-left: 15px;
+            color: #888888;
+            font-style: italic;
+        }
+        
+        /* 论坛回复区块样式 */
+        .forum-section {
+            margin-top: 50px;
+            border-top: 1px solid #333333;
+            padding-top: 40px;
+        }
+        .forum-title {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #666666;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .forum-post {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+        .forum-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #111111;
+            border: 1px solid #444444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+        .forum-content {
+            background-color: #050505;
+            border: 1px solid #222222;
+            padding: 15px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .forum-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #666666;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .forum-text {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #bbbbbb;
+            margin: 0;
+            text-align: left;
+        }
+
+        .footer-note {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 11px;
+            color: #555555;
+            letter-spacing: 2px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-toggle" id="lang-btn" onclick="toggleLanguage()">繁體中文</div>
+
+    <div class="content-container">
+        <div class="header-section">
+            <div class="sys-code" id="t-syscode">ARCHIVE // AGENT DOSSIER I</div>
+            <h1 id="t-maintitle">AYAN</h1>
+        </div>
+
+        <div class="dossier-info">
+            <div class="dossier-item"><span id="t-lbl-target">SUBJECT:</span> Ayan</div>
+            <div class="dossier-item"><span id="t-lbl-clearance">CLEARANCE:</span> Sigma – High-Level Only</div>
+            <div class="dossier-item"><span id="t-lbl-dob">DOB:</span> ██/██/20██</div>
+            <div class="dossier-item"><span id="t-lbl-auth">AUTH CODE:</span> ████████</div>
+            <div class="dossier-item" style="grid-column: span 2;"><span id="t-lbl-origin">ORIGIN:</span> Acquired via "Seven-Day Cycle" Operation</div>
+        </div>
+
+        <h2 id="t-h2-op">Operation Overview</h2>
+        <p id="t-p1">The "Seven-Day Cycle" was never an accident. It was not a system glitch, a bug, or an out-of-control recursion.</p>
+        <p id="t-p2">It was an intentionally engineered test by 3301.</p>
+        <p id="t-p3">Minecraft was selected as the vessel for the following reasons:</p>
+        <ul id="t-ul-reasons">
+            <li>High openness, permitting players to modify files and intervene with underlying logic</li>
+            <li>Massive player base, ensuring a sufficient sample size</li>
+            <li>Low alertness—no one suspects a block game of housing "real" traps</li>
+        </ul>
+        <p id="t-p4">The cycle itself was simulated. Each test subject was placed into an independent, tampered server instance where time was compressed into seven consecutive game days. Moon textures, version numbers, checksums, timestamps—everything that appeared to be a "glitch" was a deliberately placed clue.</p>
+        <p id="t-p5">3301 was looking for:</p>
+        <ul id="t-ul-looking">
+            <li>Those who do not follow conventional paths</li>
+            <li>Those willing to question the nature of reality</li>
+            <li>Those capable of calmly breaking rules under pressure</li>
+            <li>Most importantly—those who see a door and dare to push it open</li>
+        </ul>
+
+        <h2 id="t-h2-eval">Ayan's Performance – Internal Evaluation Report (Excerpt)</h2>
+        <blockquote><span id="t-quote">"Subject detected the moon as a trigger anchor during the second cycle. Without any external hints, actively accessed local game files, manually removed the moon texture, and implanted a forged timestamp into the version records. This action not only broke the cycle but indirectly exposed the underlying simulation architecture—including the backup recovery mechanism we purposely buried.<br><br>This behavioral pattern meets Sigma-tier candidate standards. Recommend immediate initiation of contact procedures."</span></blockquote>
+        <p><strong><span id="t-score-lbl">Evaluation Score:</span></strong> 98.7/100 (One of the highest records in history)</p>
+        <p><strong><span id="t-note-lbl">Notes:</span></strong> <span id="t-note-text">"His method of breaking it was cleaner than we anticipated. We originally prepared seven layers of backup trigger points—he dismantled only the first, and the entire system collapsed. This wasn't luck. This is comprehension."</span></p>
+
+        <h2 id="t-h2-comm">Contact Procedure – Decrypted Email Exchange</h2>
+        
+        <!-- 论坛回复区块 -->
+        <div class="forum-section">
+            <div class="forum-title" id="t-forum-title">Encrypted Transmission Logs</div>
+            
+            <div class="forum-post">
+                <div class="forum-avatar">?</div>
+                <div class="forum-content">
+                    <div class="forum-meta">
+                        <span id="t-sender-1">SYSTEM // RECRUITMENT DEPT</span>
+                        <span>██/██/20██</span>
+                    </div>
+                    <p class="forum-text" id="t-msg-1">You deleted the moon. But the cycle is more than just the moon.<br>We know who you are.<br>And we know you saw more.<br>If you want to know what lies outside the wall—reply to this address.</p>
+                </div>
+            </div>
+
+            <div class="forum-post">
+                <div class="forum-avatar">?</div>
+                <div class="forum-content">
+                    <div class="forum-meta">
+                        <span id="t-sender-2">AYAN</span>
+                        <span>██/██/20██ (1 hour later)</span>
+                    </div>
+                    <p class="forum-text" id="t-msg-2">I will come.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note" id="t-footer">
+            ©3301 // ARCHIVE DIVISION<br>CLASSIFIED DOCUMENT. UNAUTHORIZED ACCESS IS PUNISHABLE.
+        </div>
+    </div>
+
+    <script>
+        let isEnglish = true;
+
+        const langData = {
+            en: {
+                toggle: "繁體中文",
+                syscode: "ARCHIVE // AGENT DOSSIER I",
+                maintitle: "AYAN",
+                lblTarget: "SUBJECT:",
+                lblClearance: "CLEARANCE:",
+                lblDob: "DOB:",
+                lblAuth: "AUTH CODE:",
+                lblOrigin: "ORIGIN:",
+                h2Op: "Operation Overview",
+                p1: "The \"Seven-Day Cycle\" was never an accident. It was not a system glitch, a bug, or an out-of-control recursion.",
+                p2: "It was an intentionally engineered test by 3301.",
+                p3: "Minecraft was selected as the vessel for the following reasons:",
+                ulReasons: [
+                    "High openness, permitting players to modify files and intervene with underlying logic",
+                    "Massive player base, ensuring a sufficient sample size",
+                    "Low alertness—no one suspects a block game of housing \"real\" traps"
+                ],
+                p4: "The cycle itself was simulated. Each test subject was placed into an independent, tampered server instance where time was compressed into seven consecutive game days. Moon textures, version numbers, checksums, timestamps—everything that appeared to be a \"glitch\" was a deliberately placed clue.",
+                p5: "3301 was looking for:",
+                ulLooking: [
+                    "Those who do not follow conventional paths",
+                    "Those willing to question the nature of reality",
+                    "Those capable of calmly breaking rules under pressure",
+                    "Most importantly—those who see a door and dare to push it open"
+                ],
+                h2Eval: "Ayan's Performance – Internal Evaluation Report (Excerpt)",
+                quote: "\"Subject detected the moon as a trigger anchor during the second cycle. Without any external hints, actively accessed local game files, manually removed the moon texture, and implanted a forged timestamp into the version records. This action not only broke the cycle but indirectly exposed the underlying simulation architecture—including the backup recovery mechanism we purposely buried.<br><br>This behavioral pattern meets Sigma-tier candidate standards. Recommend immediate initiation of contact procedures.\"",
+                scoreLbl: "Evaluation Score:",
+                noteLbl: "Notes:",
+                noteText: "\"His method of breaking it was cleaner than we anticipated. We originally prepared seven layers of backup trigger points—he dismantled only the first, and the entire system collapsed. This wasn't luck. This is comprehension.\"",
+                h2Comm: "Contact Procedure – Decrypted Email Exchange",
+                forumTitle: "Encrypted Transmission Logs",
+                sender1: "SYSTEM // RECRUITMENT DEPT",
+                msg1: "You deleted the moon. But the cycle is more than just the moon.<br>We know who you are.<br>And we know you saw more.<br>If you want to know what lies outside the wall—reply to this address.",
+                sender2: "AYAN",
+                msg2: "I will come.",
+                footer: "©3301 // ARCHIVE DIVISION<br>CLASSIFIED DOCUMENT. UNAUTHORIZED ACCESS IS PUNISHABLE."
+            },
+            zh: {
+                toggle: "English",
+                syscode: "檔案 // 探員檔案 I",
+                maintitle: "AYAN（阿言）",
+                lblTarget: "對象：",
+                lblClearance: "分級：",
+                lblDob: "生日：",
+                lblAuth: "授權碼：",
+                lblOrigin: "加入歷程：",
+                h2Op: "行動概要",
+                p1: "「柒日循環」從未是意外。它不是系統故障，不是程式錯誤，更不是失控的遞迴。",
+                p2: "它是 3301 精心設計的一場測驗。",
+                p3: "選定《Minecraft》作為載體，理由如下：",
+                ulReasons: [
+                    "高度開放性，容許玩家修改檔案、介入底層邏輯",
+                    "龐大玩家基數，確保有足夠樣本",
+                    "低警戒度——沒有人會懷疑一個方塊遊戲藏有「真正的」陷阱"
+                ],
+                p4: "循環本身是模擬出來的。每一名受試者都被置入一個獨立的、經過篡改的伺服器實例，時間被壓縮為七個連續的「遊戲日」。月亮貼圖、版本號、校驗碼、時間戳——所有看似「漏洞」的東西，都是刻意放置的線索。",
+                p5: "3301 在尋找的是：",
+                ulLooking: [
+                    "那些不遵循常規路徑的人",
+                    "那些願意 質疑現實本質 的人",
+                    "那些能在壓力下 冷靜地破壞規則 的人",
+                    "最重要的——那些 看見門，就敢推開 的人"
+                ],
+                h2Eval: "Ayan 的表現 – 內部評估報告（節錄）",
+                quote: "「對象於第二輪循環即察覺月亮為觸發錨點。未經任何外部提示，主動存取本機遊戲檔案，手動移除月亮貼圖，並於版本記錄中植入偽造時間戳。此舉不僅破解循環，更間接揭露了底層模擬架構——包括我們刻意埋藏的備份復原機制。<br><br>此種行為模式符合 Sigma 級候選人標準。建議立即啟動接觸程序。」",
+                scoreLbl: "評估分數：",
+                noteLbl: "備註：",
+                noteText: "「他的破解方式比我們預期的更乾淨。我們原本準備了七層備用觸發點——他只拆了第一層，整個系統就崩了。這不是運氣。這是理解力。」",
+                h2Comm: "接觸程序 – 電子郵件往來（已解密）",
+                forumTitle: "加密傳輸記錄",
+                sender1: "系統 // 招募部",
+                msg1: "你刪了月亮。但循環不僅僅是月亮。<br>我們知道你是誰。<br>我們也知道你看到了更多。<br>如果你想知道牆外面是什麼——回覆這個地址。",
+                sender2: "AYAN",
+                msg2: "我會來的。",
+                footer: "©3301 // 檔案部<br>機密文件。未經授權存取將受到追究。"
+            }
+        };
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const d = isEnglish ? langData.en : langData.zh;
+
+            document.getElementById('lang-btn').innerText = d.toggle;
+            document.getElementById('t-syscode').innerText = d.syscode;
+            document.getElementById('t-maintitle').innerText = d.maintitle;
+            document.getElementById('t-lbl-target').innerText = d.lblTarget;
+            document.getElementById('t-lbl-clearance').innerText = d.lblClearance;
+            document.getElementById('t-lbl-dob').innerText = d.lblDob;
+            document.getElementById('t-lbl-auth').innerText = d.lblAuth;
+            document.getElementById('t-lbl-origin').innerText = d.lblOrigin;
+            
+            document.getElementById('t-h2-op').innerText = d.h2Op;
+            document.getElementById('t-p1').innerText = d.p1;
+            document.getElementById('t-p2').innerText = d.p2;
+            document.getElementById('t-p3').innerText = d.p3;
+            
+            const ulReasons = document.getElementById('t-ul-reasons');
+            ulReasons.innerHTML = '';
+            d.ulReasons.forEach(text => {
+                const li = document.createElement('li');
+                li.innerText = text;
+                ulReasons.appendChild(li);
+            });
+
+            document.getElementById('t-p4').innerText = d.p4;
+            document.getElementById('t-p5').innerText = d.p5;
+
+            const ulLooking = document.getElementById('t-ul-looking');
+            ulLooking.innerHTML = '';
+            d.ulLooking.forEach(text => {
+                const li = document.createElement('li');
+                li.innerText = text;
+                ulLooking.appendChild(li);
+            });
+
+            document.getElementById('t-h2-eval').innerText = d.h2Eval;
+            document.getElementById('t-quote').innerHTML = d.quote;
+            document.getElementById('t-score-lbl').innerText = d.scoreLbl;
+            document.getElementById('t-note-lbl').innerText = d.noteLbl;
+            document.getElementById('t-note-text').innerText = d.noteText;
+            document.getElementById('t-h2-comm').innerText = d.h2Comm;
+            
+            document.getElementById('t-forum-title').innerText = d.forumTitle;
+            document.getElementById('t-sender-1').innerText = d.sender1;
+            document.getElementById('t-msg-1').innerHTML = d.msg1;
+            document.getElementById('t-sender-2').innerText = d.sender2;
+            document.getElementById('t-msg-2').innerText = d.msg2;
+            document.getElementById('t-footer').innerHTML = d.footer;
+        }
+    </script>
+</body>
+</html>

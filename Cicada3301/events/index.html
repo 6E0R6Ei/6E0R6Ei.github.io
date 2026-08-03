@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Not Found</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #666666;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            font-size: 72px;
+            font-weight: 300;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        a {
+            color: #666666;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+        a:hover {
+            color: #111111;
+        }
+        .footer-icon {
+            position: absolute;
+            bottom: 20px;
+            width: 24px;
+            height: 24px;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .footer-icon:hover {
+            opacity: 1;
+        }
+        .hidden-text {
+            position: absolute;
+            bottom: 55px;
+            font-size: 14px;
+            color: #ffffff;
+            user-select: text;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>404</h1>
+        <p>Page not found.</p>
+    </div>
+
+    <div class="hidden-text">我们需要你去找出……</div>
+    <img src="icon.png" alt="Icon" class="footer-icon">
+
+</body>
+</html>

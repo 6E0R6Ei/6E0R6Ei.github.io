@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3301 // SECURE TERMINAL</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: "Times New Roman", SimSun, serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .lang-toggle {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            cursor: pointer;
+            font-size: 13px;
+            letter-spacing: 2px;
+            user-select: none;
+            color: #888888;
+            transition: color 0.3s ease;
+        }
+        .lang-toggle:hover {
+            color: #ffffff;
+        }
+        .chat-container {
+            max-width: 800px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333333;
+            background-color: #050505;
+        }
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid #333333;
+            background-color: #000000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sys-code {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #666666;
+            text-transform: uppercase;
+        }
+        .recipient-info {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #cccccc;
+        }
+        .recipient-info span {
+            color: #555555;
+            font-style: italic;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .empty-notice {
+            text-align: center;
+            color: #444444;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin: auto;
+        }
+        .chat-input-area {
+            border-top: 1px solid #333333;
+            padding: 15px 20px;
+            background-color: #000000;
+            display: flex;
+            gap: 15px;
+        }
+        textarea {
+            flex: 1;
+            background-color: #050505;
+            border: 1px solid #333333;
+            color: #ffffff;
+            font-family: "Times New Roman", SimSun, serif;
+            font-size: 14px;
+            padding: 12px;
+            resize: none;
+            height: 40px;
+            box-sizing: border-box;
+            letter-spacing: 1px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        textarea:focus {
+            border-color: #666666;
+        }
+        button {
+            background-color: #000000;
+            color: #ffffff;
+            border: 1px solid #333333;
+            font-family: "Times New Roman", SimSun, serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            padding: 0 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-toggle" id="lang-btn" onclick="toggleLanguage()">繁體中文</div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="sys-code" id="t-syscode">SECURE_CHANNEL // ENCRYPTED_RELAY</div>
+            <div class="recipient-info" id="t-recipient">RECIPIENT: <span>[ UNASSIGNED ]</span></div>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            <div class="empty-notice" id="t-empty">NO TRANSMISSION LOGS FOUND. WAITING FOR CONNECTION...</div>
+        </div>
+
+        <div class="chat-input-area">
+            <textarea id="message-input" placeholder="Enter transmission payload..."></textarea>
+            <button id="t-send-btn" onclick="sendMessage()">TRANSMIT</button>
+        </div>
+    </div>
+
+    <script>
+        let isEnglish = true;
+
+        const langData = {
+            en: {
+                toggle: "繁體中文",
+                syscode: "SECURE_CHANNEL // ENCRYPTED_RELAY",
+                recipient: "RECIPIENT: <span>[ UNASSIGNED ]</span>",
+                empty: "NO TRANSMISSION LOGS FOUND. WAITING FOR CONNECTION...",
+                placeholder: "Enter transmission payload...",
+                sendBtn: "TRANSMIT"
+            },
+            zh: {
+                toggle: "English",
+                syscode: "安全頻道 // 加密中繼",
+                recipient: "收件人： <span>[ 暫無指定 ]</span>",
+                empty: "未檢索到傳輸日誌。正在等待連線...",
+                placeholder: "輸入傳輸內容...",
+                sendBtn: "傳輸"
+            }
+        };
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const d = isEnglish ? langData.en : langData.zh;
+
+            document.getElementById('lang-btn').innerText = d.toggle;
+            document.getElementById('t-syscode').innerText = d.syscode;
+            document.getElementById('t-recipient').innerHTML = d.recipient;
+            document.getElementById('t-empty').innerText = d.empty;
+            document.getElementById('message-input').placeholder = d.placeholder;
+            document.getElementById('t-send-btn').innerText = d.sendBtn;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const messagesContainer = document.getElementById('chat-messages');
+            
+            // 清除空壳提示
+            if (messagesContainer.querySelector('.empty-notice')) {
+                messagesContainer.innerHTML = '';
+            }
+
+            // 创建消息节点
+            const postDiv = document.createElement('div');
+            postDiv.style.display = 'flex';
+            postDiv.style.gap = '20px';
+            postDiv.style.alignItems = 'flex-start';
+
+            const avatarDiv = document.createElement('div');
+            avatarDiv.style.width = '40px';
+            avatarDiv.style.height = '40px';
+            avatarDiv.style.borderRadius = '50%';
+            avatarDiv.style.backgroundColor = '#111111';
+            avatarDiv.style.border = '1px solid #444444';
+            avatarDiv.style.display = 'flex';
+            avatarDiv.style.alignItems = 'center';
+            avatarDiv.style.justifyContent = 'center';
+            avatarDiv.style.fontSize = '18px';
+            avatarDiv.style.color = '#ffffff';
+            avatarDiv.style.flexShrink = '0';
+            avatarDiv.innerText = '?';
+
+            const contentDiv = document.createElement('div');
+            contentDiv.style.backgroundColor = '#050505';
+            contentDiv.style.border = '1px solid #222222';
+            contentDiv.style.padding = '15px 20px';
+            contentDiv.style.width = '100%';
+            contentDiv.style.boxSizing = 'border-box';
+
+            const metaDiv = document.createElement('div');
+            metaDiv.style.display = 'flex';
+            metaDiv.style.justifyContent = 'space-between';
+            metaDiv.style.fontSize = '11px';
+            metaDiv.style.color = '#666666';
+            metaDiv.style.marginBottom = '8px';
+            metaDiv.style.letterSpacing = '1px';
+            
+            const now = new Date();
+            const timeStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+            
+            metaDiv.innerHTML = `<span>AYAN</span><span>${timeStr}</span>`;
+
+            const textP = document.createElement('p');
+            textP.style.fontSize = '13px';
+            textP.style.lineHeight = '1.6';
+            textP.style.color = '#bbbbbb';
+            textP.style.margin = '0';
+            textP.style.textAlign = 'left';
+            textP.innerText = text;
+
+            contentDiv.appendChild(metaDiv);
+            contentDiv.appendChild(textP);
+            postDiv.appendChild(avatarDiv);
+            postDiv.appendChild(contentDiv);
+
+            messagesContainer.appendChild(postDiv);
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+    </script>
+</body>
+</html>

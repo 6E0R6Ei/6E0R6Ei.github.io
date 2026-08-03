@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Gateway Authentication</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: "Times New Roman", SimSun, serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .lang-toggle {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            cursor: pointer;
+            font-size: 13px;
+            letter-spacing: 2px;
+            user-select: none;
+            color: #888888;
+            transition: color 0.3s ease;
+        }
+        .lang-toggle:hover {
+            color: #ffffff;
+        }
+        .login-wrapper {
+            width: 400px;
+            padding: 50px;
+            background-color: #000000;
+            border: 1px solid #333333;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+        }
+        .system-header {
+            margin-bottom: 35px;
+            border-bottom: 1px solid #222222;
+            padding-bottom: 15px;
+        }
+        .system-id {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #666666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: 18px;
+            margin: 0;
+            letter-spacing: 3px;
+            font-weight: normal;
+            color: #ffffff;
+        }
+        .field-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-size: 11px;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            color: #aaaaaa;
+        }
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #080808;
+            border: 1px solid #333333;
+            color: #ffffff;
+            font-family: "Times New Roman", SimSun, serif;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #ffffff;
+        }
+        .action-container {
+            margin-top: 35px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            font-family: "Times New Roman", SimSun, serif;
+            font-size: 13px;
+            cursor: pointer;
+            letter-spacing: 3px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        button:hover {
+            background-color: #222222;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+        }
+        .status-display {
+            margin-top: 20px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #ff4444;
+            min-height: 18px;
+            text-align: center;
+        }
+        .footer-note {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color: #444444;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-toggle" id="lang-btn" onclick="toggleLanguage()">繁體中文</div>
+
+    <div class="login-wrapper">
+        <div class="system-header">
+            <div class="system-id" id="t-sysid">TERMINAL // SECURE_AUTH_v4.2</div>
+            <h2 id="t-title">AUTHENTICATION REQUIRED</h2>
+        </div>
+        
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="field-group">
+                <label id="t-user-label" for="username">IDENTIFIER</label>
+                <input type="text" id="username" autocomplete="off" required>
+            </div>
+            
+            <div class="field-group">
+                <label id="t-pass-label" for="password">PASSPHRASE</label>
+                <input type="password" id="password" required>
+            </div>
+            
+            <div class="action-container">
+                <button type="submit" id="t-btn">ESTABLISH SESSION</button>
+            </div>
+            
+            <div class="status-display" id="error-msg"></div>
+        </form>
+
+        <div class="footer-note" id="t-footer">RESTRICTED ENVIRONMENT // AUTHORIZED ACCESS ONLY</div>
+    </div>
+
+    <script>
+        let isEnglish = true;
+
+        const langData = {
+            en: {
+                toggle: "繁體中文",
+                sysid: "TERMINAL // SECURE_AUTH",
+                title: "AUTHENTICATION REQUIRED",
+                userLabel: "IDENTIFIER",
+                passLabel: "PASSPHRASE",
+                btn: "ESTABLISH SESSION",
+                error: "[ERR_CONNECTION_TIMED_OUT] Network error. Gateway unreachable.",
+                footer: "RESTRICTED ENVIRONMENT // AUTHORIZED ACCESS ONLY"
+            },
+            zh: {
+                toggle: "English",
+                sysid: "終端 // 安全驗證",
+                title: "需要身分驗證",
+                userLabel: "識別代號",
+                passLabel: "密碼憑證",
+                btn: "建立連線",
+                error: "[ERR_CONNECTION_TIMED_OUT] 網路錯誤，閘道器無法連線。",
+                footer: "限制級環境 // 僅限授權存取"
+            }
+        };
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const d = isEnglish ? langData.en : langData.zh;
+
+            document.getElementById('lang-btn').innerText = d.toggle;
+            document.getElementById('t-sysid').innerText = d.sysid;
+            document.getElementById('t-title').innerText = d.title;
+            document.getElementById('t-user-label').innerText = d.userLabel;
+            document.getElementById('t-pass-label').innerText = d.passLabel;
+            document.getElementById('t-btn').innerText = d.btn;
+            document.getElementById('t-footer').innerText = d.footer;
+            
+            const errorDiv = document.getElementById('error-msg');
+            if (errorDiv.innerText !== "") {
+                errorDiv.innerText = d.error;
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const d = isEnglish ? langData.en : langData.zh;
+            const errorDiv = document.getElementById('error-msg');
+            
+            errorDiv.style.opacity = 0;
+            errorDiv.innerText = d.error;
+            
+            // 模拟延迟增加真实感
+            setTimeout(() => {
+                errorDiv.style.opacity = 1;
+            }, 100);
+        }
+    </script>
+</body>
+</html>

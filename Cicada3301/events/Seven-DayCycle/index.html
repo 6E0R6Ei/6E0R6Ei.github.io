@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation: SEVEN-DAY CYCLE</title>
+    <style>
+        body {
+            background-color: #167c6f;
+            color: #ffffff;
+            font-family: 'Times New Roman', SimSun, serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        .lang-toggle {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 1px;
+            user-select: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+        .lang-toggle:hover {
+            border-bottom: 1px solid #ffffff;
+        }
+        .lang-toggle.disabled {
+            cursor: default;
+            pointer-events: none;
+        }
+        .container {
+            max-width: 800px;
+            margin: 80px auto 50px auto;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            transition: font-size 2s ease;
+        }
+        h2 {
+            font-size: 20px;
+            margin-top: 40px;
+            color: #eeeeee;
+            transition: font-size 2s ease;
+        }
+        .metadata {
+            margin-bottom: 40px;
+            font-size: 16px;
+            transition: font-size 2s ease;
+        }
+        .metadata div {
+            margin-bottom: 8px;
+        }
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            transition: font-size 2s ease;
+        }
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+            transition: font-size 2s ease;
+        }
+        ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        .quote {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #ffffff;
+            margin: 30px 0;
+            font-style: italic;
+        }
+        #bsod {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #0078D7;
+            color: #ffffff;
+            font-family: 'Microsoft YaHei', sans-serif;
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .bsod-msg1 {
+            font-size: 42px;
+            margin-bottom: 40px;
+        }
+        .bsod-msg2 {
+            font-size: 22px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-toggle" id="lang-btn" onclick="toggleLanguage()">繁體中文</div>
+
+    <div class="container" id="main-content">
+        <h1 id="t-title">Operation Code: SEVEN-DAY CYCLE</h1>
+        
+        <div class="metadata">
+            <div><strong id="t-unit">Initiating Unit:</strong> <span id="t-unit-val">3301 Talent Recruitment & Stress Testing Department</span></div>
+            <div><strong id="t-type">Operation Type:</strong> <span id="t-type-val">Immersive Cognitive Screening</span></div>
+            <div><strong id="t-goal">Objective:</strong> <span id="t-goal-val">Identify high-potential individuals with unconventional deconstructive thinking in public gaming environments</span></div>
+        </div>
+
+        <h2 id="t-sec1-title">Operation Overview</h2>
+        <p id="t-sec1-p1">The "Seven-Day Cycle" was never an accident. It is not a system glitch, not a software bug, and certainly not out-of-control recursion.</p>
+        <p id="t-sec1-p2">It is a test meticulously designed by 3301.</p>
+        <p id="t-sec1-p3">Minecraft was chosen as the medium for the following reasons:</p>
+        <ul id="t-sec1-list">
+            <li>High openness, allowing players to modify files and intervene with underlying logic</li>
+            <li>A massive player base, ensuring a sufficient sample size</li>
+            <li>Low alertness—no one would suspect a block game harbors a "real" trap</li>
+        </ul>
+        <p id="t-sec1-p4">The cycle itself is simulated. Every test subject is placed into an independent, tampered server instance where time is compressed into seven consecutive "game days." Moon textures, version numbers, checksums, timestamps—everything that looks like a loophole is a deliberately placed clue.</p>
+
+        <h2 id="t-sec2-title">What 3301 is Looking For:</h2>
+        <ul id="t-sec2-list">
+            <li>Those who do not follow conventional paths</li>
+            <li>Those willing to question the nature of reality</li>
+            <li>Those capable of calmly breaking rules under pressure</li>
+            <li>Most importantly—those who see a door and dare to push it open</li>
+        </ul>
+
+        <h2 id="t-sec3-title">Ayan's Performance – Internal Evaluation Report (Excerpt)</h2>
+        <div class="quote">
+            <p id="t-quote-1">"The subject perceived the moon as a trigger anchor by the second cycle. Without any external hints, they proactively accessed local game files, manually removed the moon texture, and implanted a forged timestamp into the version logs. This action not only broke the cycle but indirectly exposed the underlying simulation architecture—including the backup recovery mechanism we intentionally buried."</p>
+            <p id="t-quote-2">"This behavioral pattern matches Sigma-level candidate standards. It is recommended to initiate contact procedures immediately."</p>
+        </div>
+        <p><strong id="t-score-label">Evaluation Score:</strong> <span id="t-score-val">98.7/100 (One of the highest records in history)</span></p>
+        <p><strong id="t-remark-label">Remarks:</strong> <span id="t-remark-val">"His cracking method was cleaner than we anticipated. We originally prepared seven layers of backup trigger points—he dismantled only the first layer, and the entire system collapsed. This is not luck. This is comprehension."</span></p>
+
+        <h2 id="t-sec4-title">Afterword</h2>
+        <p id="t-sec4-p1">To date, the "Seven-Day Cycle" has been archived as a classic internal recruitment case study for 3301. This operation proves that:</p>
+        <ol id="t-sec4-list">
+            <li>True geniuses are not bound by rules—they rewrite them</li>
+            <li>The most effective screening tool is letting subjects not know they are being screened</li>
+            <li>The moon has never just been the moon</li>
+        </ol>
+    </div>
+
+    <div id="bsod">
+        <div class="bsod-msg1" id="t-bsod-1">:) 你知道的已經太多了</div>
+        <div class="bsod-msg2" id="t-bsod-2">此頁面將在 30 秒後自動重新導向。<br>若無重新導向，請檢查你的版本號。</div>
+    </div>
+
+    <script>
+        let isEnglish = true;
+        let f12Triggered = false;
+
+        const langData = {
+            en: {
+                toggle: "繁體中文",
+                title: "Operation Code: SEVEN-DAY CYCLE",
+                unit: "Initiating Unit:",
+                unitVal: "3301 Talent Recruitment & Stress Testing Department",
+                type: "Operation Type:",
+                typeVal: "Immersive Cognitive Screening",
+                goal: "Objective:",
+                goalVal: "Identify high-potential individuals with unconventional deconstructive thinking in public gaming environments",
+                sec1Title: "Operation Overview",
+                sec1P1: "The \"Seven-Day Cycle\" was never an accident. It is not a system glitch, not a software bug, and certainly not out-of-control recursion.",
+                sec1P2: "It is a test meticulously designed by 3301.",
+                sec1P3: "Minecraft was chosen as the medium for the following reasons:",
+                sec1Li: [
+                    "High openness, allowing players to modify files and intervene with underlying logic",
+                    "A massive player base, ensuring a sufficient sample size",
+                    "Low alertness—no one would suspect a block game harbors a \"real\" trap"
+                ],
+                sec1P4: "The cycle itself is simulated. Every test subject is placed into an independent, tampered server instance where time is compressed into seven consecutive \"game days.\" Moon textures, version numbers, checksums, timestamps—everything that looks like a loophole is a deliberately placed clue.",
+                sec2Title: "What 3301 is Looking For:",
+                sec2Li: [
+                    "Those who do not follow conventional paths",
+                    "Those willing to question the nature of reality",
+                    "Those capable of calmly breaking rules under pressure",
+                    "Most importantly—those who see a door and dare to push it open"
+                ],
+                sec3Title: "Ayan's Performance – Internal Evaluation Report (Excerpt)",
+                quote1: "\"The subject perceived the moon as a trigger anchor by the second cycle. Without any external hints, they proactively accessed local game files, manually removed the moon texture, and implanted a forged timestamp into the version logs. This action not only broke the cycle but indirectly exposed the underlying simulation architecture—including the backup recovery mechanism we intentionally buried.\"",
+                quote2: "\"This behavioral pattern matches Sigma-level candidate standards. It is recommended to initiate contact procedures immediately.\"",
+                scoreLabel: "Evaluation Score:",
+                scoreVal: "98.7/100 (One of the highest records in history)",
+                remarkLabel: "Remarks:",
+                remarkVal: "\"His cracking method was cleaner than we anticipated. We originally prepared seven layers of backup trigger points—he dismantled only the first layer, and the entire system collapsed. This is not luck. This is comprehension.\"",
+                sec4Title: "Afterword",
+                sec4P1: "To date, the \"Seven-Day Cycle\" has been archived as a classic internal recruitment case study for 3301. This operation proves that:",
+                sec4Li: [
+                    "True geniuses are not bound by rules—they rewrite them",
+                    "The most effective screening tool is letting subjects not know they are being screened",
+                    "The moon has never just been the moon"
+                ],
+                bsod1: ":) 你知道的已經太多了",
+                bsod2: "此頁面將在 30 秒後自動重新導向。<br>若無重新導向，請檢查你的版本號。"
+            },
+            zh: {
+                toggle: "English",
+                title: "行動代號：柒日循環（SEVEN-DAY CYCLE）",
+                unit: "發起單位：",
+                unitVal: "3301 人才招募暨壓力測試部",
+                type: "行動類型：",
+                typeVal: "沉浸式認知篩選（Immersive Cognitive Screening）",
+                goal: "目標：",
+                goalVal: "於公開遊戲環境中，識別具備非常規解構思維之高潛力個體",
+                sec1Title: "行動概要",
+                sec1P1: "「柒日循環」從未是意外。它不是系統故障，不是程式錯誤，更不是失控的遞迴。",
+                sec1P2: "它是 3301 精心設計的一場測驗。",
+                sec1P3: "選定《Minecraft》作為載體，理由如下：",
+                sec1Li: [
+                    "高度開放性，容許玩家修改檔案、介入底層邏輯",
+                    "龐大玩家基數，確保有足夠樣本",
+                    "低警戒度——沒有人會懷疑一個方塊遊戲藏有「真正的」陷阱"
+                ],
+                sec1P4: "循環本身是模擬出來的。每一名受試者都被置入一個獨立的、經過篡改的伺服器實例，時間被壓縮為七個連續的「遊戲日」。月亮貼圖、版本號、校驗碼、時間戳——所有看似「漏洞」的東西，都是刻意放置的線索。",
+                sec2Title: "3301 在尋找的是：",
+                sec2Li: [
+                    "那些不遵循常規路徑的人",
+                    "那些願意質疑現實本質的人",
+                    "那些能在壓力下冷靜地破壞規則的人",
+                    "最重要的是——那些看見門，就敢推開的人"
+                ],
+                sec3Title: "Ayan 的表現 – 內部評估報告（節錄）",
+                quote1: "「對象於第二輪循環即察覺月亮為觸發錨點。未經任何外部提示，主動存取本機遊戲檔案，手動移除月亮貼圖，並於版本記錄中植入偽造時間戳。此舉不僅破解循環，更間接揭露了底層模擬架構——包括我們刻意埋藏的備份復原機制。",
+                quote2: "此種行為模式符合 Sigma 級候選人標準。建議立即啟動接觸程序。」",
+                scoreLabel: "評估分數：",
+                scoreVal: "98.7/100（歷史最高紀錄之一）",
+                remarkLabel: "備註：",
+                remarkVal: "「他的破解方式比我們預期的更乾淨。我們原本準備了七層備用觸發點——他只拆了第一層，整個系統就崩了。這不是運氣。這是理解力。」",
+                sec4Title: "後記",
+                sec4P1: "截至目前，「柒日循環」已被歸檔為 3301 內部經典招募案例。該行動證明了：",
+                sec4Li: [
+                    "真正的天才不會被規則限制——他們會改寫規則",
+                    "最有效的篩選工具，是讓受試者不知道自己正在被篩選",
+                    "月亮，從來不只是月亮"
+                ],
+                bsod1: ":) 你知道的已經太多了",
+                bsod2: "此頁面將在 30 秒後自動重新導向。<br>若無重新導向，請檢查你的版本號。"
+            }
+        };
+
+        function toggleLanguage() {
+            if (f12Triggered) return;
+            isEnglish = !isEnglish;
+            const d = isEnglish ? langData.en : langData.zh;
+
+            document.getElementById('lang-btn').innerText = d.toggle;
+            document.getElementById('t-title').innerText = d.title;
+            document.getElementById('t-unit').innerText = d.unit;
+            document.getElementById('t-unit-val').innerText = d.unitVal;
+            document.getElementById('t-type').innerText = d.type;
+            document.getElementById('t-type-val').innerText = d.typeVal;
+            document.getElementById('t-goal').innerText = d.goal;
+            document.getElementById('t-goal-val').innerText = d.goalVal;
+            document.getElementById('t-sec1-title').innerText = d.sec1Title;
+            document.getElementById('t-sec1-p1').innerText = d.sec1P1;
+            document.getElementById('t-sec1-p2').innerText = d.sec1P2;
+            document.getElementById('t-sec1-p3').innerText = d.sec1P3;
+            
+            const sec1Ul = document.getElementById('t-sec1-list');
+            sec1Ul.innerHTML = '';
+            d.sec1Li.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                sec1Ul.appendChild(li);
+            });
+
+            document.getElementById('t-sec1-p4').innerText = d.sec1P4;
+            document.getElementById('t-sec2-title').innerText = d.sec2Title;
+
+            const sec2Ul = document.getElementById('t-sec2-list');
+            sec2Ul.innerHTML = '';
+            d.sec2Li.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                sec2Ul.appendChild(li);
+            });
+
+            document.getElementById('t-sec3-title').innerText = d.sec3Title;
+            document.getElementById('t-quote-1').innerText = d.quote1;
+            document.getElementById('t-quote-2').innerText = d.quote2;
+            document.getElementById('t-score-label').innerText = d.scoreLabel;
+            document.getElementById('t-score-val').innerText = d.scoreVal;
+            document.getElementById('t-remark-label').innerText = d.remarkLabel;
+            document.getElementById('t-remark-val').innerText = d.remarkVal;
+            document.getElementById('t-sec4-title').innerText = d.sec4Title;
+            document.getElementById('t-sec4-p1').innerText = d.sec4P1;
+
+            const sec4Ol = document.getElementById('t-sec4-list');
+            sec4Ol.innerHTML = '';
+            d.sec4Li.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                sec4Ol.appendChild(li);
+            });
+
+            document.getElementById('t-bsod-1').innerText = d.bsod1;
+            document.getElementById('t-bsod-2').innerHTML = d.bsod2;
+        }
+
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+                f12Triggered = true;
+                
+                const langBtn = document.getElementById('lang-btn');
+                langBtn.innerText = '🌕';
+                langBtn.classList.add('disabled');
+
+                const allTextElements = document.querySelectorAll('h1, h2, div, p, li, strong, span');
+                allTextElements.forEach(el => {
+                    if (el.id !== 'lang-btn' && !el.closest('#lang-btn') && el.children.length === 0 && el.innerText.trim() !== '') {
+                        el.innerText = "Don’t Watch The Moon";
+                        el.style.color = '#ff0000';
+                        el.style.fontSize = '32px';
+                    }
+                });
+            }
+        });
+
+        setTimeout(function() {
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('bsod').style.display = 'flex';
+            document.body.style.backgroundColor = '#0078D7';
+            
+            setTimeout(function() {
+                window.location.href = 'https://6e0r6ei.github.io/Cicada3301';
+            }, 30000);
+            
+        }, 60000);
+    </script>
+</body>
+</html>

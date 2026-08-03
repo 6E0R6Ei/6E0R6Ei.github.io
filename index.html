@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Login</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Times New Roman', SimSun, serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .lang-toggle {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 1px;
+            user-select: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+        .lang-toggle:hover {
+            border-bottom: 1px solid #ffffff;
+        }
+        .login-container {
+            width: 320px;
+            padding: 40px;
+            border: 1px solid #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 25px;
+            object-fit: contain;
+        }
+        h1 {
+            font-weight: normal;
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 2px;
+            width: 100%;
+        }
+        .input-group {
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+            border-radius: 0;
+        }
+        input:focus {
+            border: 1px solid #888888;
+        }
+        button {
+            width: 100%;
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 16px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        button:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        #error-msg {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-toggle" id="lang-btn" onclick="toggleLanguage()">繁體中文</div>
+    <div class="login-container">
+        <img src="icon.png" alt="Logo" class="logo">
+        <h1 id="title">LOGIN</h1>
+        <div class="input-group">
+            <label for="username" id="label-user">Username</label>
+            <input type="text" id="username" autocomplete="off">
+        </div>
+        <div class="input-group">
+            <label for="password" id="label-pass">Password</label>
+            <input type="password" id="password" autocomplete="off">
+        </div>
+        <button id="login-btn" onclick="attemptLogin()">ENTER</button>
+        <div id="error-msg">Account name or password incorrect.</div>
+    </div>
+    <script>
+        let isEnglish = true;
+        let clickCount = 0;
+        const i18n = {
+            en: {
+                toggle: "繁體中文",
+                title: "LOGIN",
+                user: "Username",
+                pass: "Password",
+                btn: "ENTER",
+                error: "Account name or password incorrect."
+            },
+            zh: {
+                toggle: "English",
+                title: "登 入",
+                user: "使用者名稱",
+                pass: "密碼",
+                btn: "進 入",
+                error: "此帳戶名或密碼錯誤。"
+                // GitHub项目制作\ 6E0R6E
+                // 呵呵你终于发现了
+            }
+        };
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const lang = isEnglish ? 'en' : 'zh';
+            document.getElementById('lang-btn').innerText = i18n[lang].toggle;
+            document.getElementById('title').innerText = i18n[lang].title;
+            document.getElementById('label-user').innerText = i18n[lang].user;
+            document.getElementById('label-pass').innerText = i18n[lang].pass;
+            document.getElementById('login-btn').innerText = i18n[lang].btn;
+            document.getElementById('error-msg').innerText = i18n[lang].error;
+        }
+        function attemptLogin() {
+            clickCount++;
+            if (clickCount === 7) {
+                window.location.href = "https://6e0r6ei.github.io/Cicada3301";
+                return;
+            }
+            document.getElementById('password').value = "";
+            const errorElement = document.getElementById('error-msg');
+            errorElement.style.opacity = '0';
+            setTimeout(() => {
+                errorElement.style.opacity = '1';
+            }, 100);
+        }
+    </script>
+</body>
+</html>

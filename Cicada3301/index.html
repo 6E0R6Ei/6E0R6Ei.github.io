@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3301 // ABOUT US</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: "Times New Roman", SimSun, serif;
+            margin: 0;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .lang-toggle {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            cursor: pointer;
+            font-size: 13px;
+            letter-spacing: 2px;
+            user-select: none;
+            color: #888888;
+            transition: color 0.3s ease;
+        }
+        .lang-toggle:hover {
+            color: #ffffff;
+        }
+        .content-container {
+            max-width: 700px;
+            width: 100%;
+            padding: 20px;
+        }
+        .header-section {
+            border-bottom: 1px solid #333333;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .sys-code {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #666666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            letter-spacing: 3px;
+            margin: 0;
+        }
+        h2 {
+            font-size: 16px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #cccccc;
+            border-left: 2px solid #ffffff;
+            padding-left: 10px;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #aaaaaa;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: #aaaaaa;
+        }
+        li {
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .faq-q {
+            font-weight: bold;
+            color: #ffffff;
+            margin-top: 15px;
+        }
+        .faq-a {
+            margin-bottom: 15px;
+        }
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 50px;
+            border-top: 1px solid #333333;
+            padding-top: 40px;
+        }
+        a.btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #000000;
+            color: #ffffff;
+            border: 1px solid #333333;
+            text-decoration: none;
+            text-align: center;
+            font-family: "Times New Roman", SimSun, serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        a.btn:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+        }
+        .footer-note {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 11px;
+            color: #555555;
+            letter-spacing: 2px;
+            line-height: 1.6;
+        }
+        /* 当刷新次数为7时的特殊样式：只显示图片并居中 */
+        body.mode-seven {
+            justify-content: center;
+            height: 100vh;
+            padding: 0;
+            overflow: hidden;
+        }
+        body.mode-seven .content-container,
+        body.mode-seven .lang-toggle {
+            display: none;
+        }
+        .secret-image-container {
+            display: none;
+            text-align: center;
+        }
+        body.mode-seven .secret-image-container {
+            display: block;
+        }
+        .secret-image-container img {
+            max-width: 80vw;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-toggle" id="lang-btn" onclick="toggleLanguage()">繁體中文</div>
+
+    <div class="content-container">
+        <div class="header-section">
+            <div class="sys-code" id="t-syscode">ARCHIVE // ORGANIZATION_PROFILE</div>
+            <h1 id="t-maintitle">3301</h1>
+        </div>
+
+        <p id="t-p1">We do not recruit. We identify.</p>
+
+        <h2 id="t-h2-about">About Us</h2>
+        <p id="t-p2">3301 is an unlisted cognitive architecture research organization. Established in ████████. Headquarters location: None. Member count: Classified.</p>
+        <p id="t-p3">We belong to no government. We are affiliated with no corporation. We are interested in only one thing—finding those who can see the cracks.</p>
+        <p id="t-p4">This world is a layer upon layer of simulations, protocols, loops, and lies. Most people live inside them and never look up. A few look up, but even if they see the errors, very few reach out to rewrite them.</p>
+        <p id="t-p5">Those individuals are the ones we are looking for.</p>
+
+        <h2 id="t-h2-what">What We Do</h2>
+        <ul id="t-ul-what">
+            <li>Design immersive pressure scenarios to test human cognitive boundaries</li>
+            <li>Study recursive vulnerabilities and patching methods between reality layers</li>
+            <li>Protect critical information from acquisition by improper entities</li>
+            <li>Occasionally—recruit</li>
+        </ul>
+        <p id="t-p6">What we do not do: make public appearances, explain ourselves, ask for permission.</p>
+
+        <h2 id="t-h2-join">Join Us</h2>
+        <p id="t-p7">If you are viewing this page—you have already been noticed.</p>
+        <p id="t-p8">Our recruitment has no application form, no interview, no HR department. Only tests.</p>
+        <p id="t-p9">Some tests are digital. Some are psychological. Some are puzzles published in the past. You may have already passed without knowing.</p>
+        <p id="t-p10">If you believe you meet the criteria, here are the currently open entry points. Please wait for us to select you, which may take one to two business days:</p>
+        
+        <p><strong>➤ Seven-Day Cycle Operation</strong><br><span id="t-sub1">— "Data Deletion"</span></p>
+        <p><strong>➤ Past Puzzles</strong><br><span id="t-sub2">— Some puzzles published in previous years; most have been solved, but many unsolved mysteries remain.</span></p>
+
+        <h2 id="t-h2-faq">Frequently Asked Questions (We Know You Will Ask)</h2>
+        <div class="faq-q" id="t-q1">Q: Is 3301 a cult?</div>
+        <div class="faq-a" id="t-a1">A: No. A cult asks you to believe. We ask you to question.</div>
+        
+        <div class="faq-q" id="t-q2">Q: What happens after joining?</div>
+        <div class="faq-a" id="t-a2">A: You will see more. And you will be seen more.</div>
+        
+        <div class="faq-q" id="t-q3">Q: What if I am not qualified?</div>
+        <div class="faq-a" id="t-a3">A: You will return to your normal life. Only occasionally... wondering if this world is real.</div>
+        
+        <div class="faq-q" id="t-q4">Q: How did you find me?</div>
+        <div class="faq-a" id="t-a4">A: We didn't find you. You found this place. That in itself is the answer.</div>
+
+        <h2 id="t-h2-contact">Contact</h2>
+        <p id="t-p11">We have no customer service email. No Discord. No Twitter.</p>
+        <p id="t-p12">If you truly have something to say—you will know how to say it.</p>
+
+        <div class="nav-buttons">
+            <a href="https://6e0r6ei.github.io/Cicada3301/events/Seven-DayCycle" class="btn" id="t-btn1">SEVEN-DAY CYCLE</a>
+            <a href="https://6e0r6ei.github.io/Cicada3301/events" class="btn" id="t-btn2">PAST EVENTS</a>
+        </div>
+
+        <div class="footer-note" id="t-footer">
+            ©3301<br>This page generates minor mutations upon every refresh. If you noticed—congratulations.
+        </div>
+    </div>
+
+    <!-- 刷新次数为7时单独显示的图片容器 -->
+    <div class="secret-image-container">
+        <img src="Cicada_3301.webp" alt="Cicada 3301">
+    </div>
+
+    <script>
+        let isEnglish = true;
+
+        let refreshCount = sessionStorage.getItem('page_refresh_count');
+        if (!refreshCount) {
+            refreshCount = 1;
+        } else {
+            refreshCount = parseInt(refreshCount) + 1;
+        }
+
+        if (refreshCount > 7) {
+            refreshCount = 1;
+        }
+
+        sessionStorage.setItem('page_refresh_count', refreshCount);
+
+        if (refreshCount === 7) {
+            document.body.classList.add('mode-seven');
+        }
+
+        const langData = {
+            en: {
+                toggle: "繁體中文",
+                syscode: "ARCHIVE // ORGANIZATION_PROFILE",
+                maintitle: "3301",
+                p1: "We do not recruit. We identify.",
+                h2About: "About Us",
+                p2: "3301 is an unlisted cognitive architecture research organization. Established in ████████. Headquarters location: None. Member count: Classified.",
+                p3: "We belong to no government. We are affiliated with no corporation. We are interested in only one thing—finding those who can see the cracks.",
+                p4: "This world is a layer upon layer of simulations, protocols, loops, and lies. Most people live inside them and never look up. A few look up, but even if they see the errors, very few reach out to rewrite them.",
+                p5: "Those individuals are the ones we are looking for.",
+                h2What: "What We Do",
+                ulWhat: [
+                    "Design immersive pressure scenarios to test human cognitive boundaries",
+                    "Study recursive vulnerabilities and patching methods between reality layers",
+                    "Protect critical information from acquisition by improper entities",
+                    "Occasionally—recruit"
+                ],
+                p6: "What we do not do: make public appearances, explain ourselves, ask for permission.",
+                h2Join: "Join Us",
+                p7: "If you are viewing this page—you have already been noticed.",
+                p8: "Our recruitment has no application form, no interview, no HR department. Only tests.",
+                p9: "Some tests are digital. Some are psychological. Some are puzzles published in the past. You may have already passed without knowing.",
+                p10: "If you believe you meet the criteria, here are the currently open entry points. Please wait for us to select you, which may take one to two business days:",
+                sub1: "— \"Data Deletion\"",
+                sub2: "— Some puzzles published in previous years; most have been solved, but many unsolved mysteries remain.",
+                h2Faq: "Frequently Asked Questions (We Know You Will Ask)",
+                q1: "Q: Is 3301 a cult?",
+                a1: "A: No. A cult asks you to believe. We ask you to question.",
+                q2: "Q: What happens after joining?",
+                a2: "A: You will see more. And you will be seen more.",
+                q3: "Q: What if I am not qualified?",
+                a3: "A: You will return to your normal life. Only occasionally... wondering if this world is real.",
+                q4: "Q: How did you find me?",
+                a4: "A: We didn't find you. You found this place. That in itself is the answer.",
+                h2Contact: "Contact",
+                p11: "We have no customer service email. No Discord. No Twitter.",
+                p12: "If you truly have something to say—you will know how to say it.",
+                btn1: "SEVEN-DAY CYCLE",
+                btn2: "PAST EVENTS",
+                footer: "©3301<br>This page generates minor mutations upon every refresh. If you noticed—congratulations."
+            },
+            zh: {
+                toggle: "English",
+                syscode: "檔案 // 組織簡介",
+                maintitle: "3301",
+                p1: "我們不招募。我們辨識。",
+                h2About: "關於我們",
+                p2: "3301 是一個非公開的認知架構研究組織。成立年份████████。總部位置：無。成員數量：無可奉告。",
+                p3: "我們不屬於任何政府。不隸屬於任何企業。我們只對一件事感興趣——找到那些能看見裂縫的人。",
+                p4: "這世界是一層又一層的模擬、協定、循環與謊言。大部分人活在裡面，從不抬頭。少數人也會抬頭看，但即使他們看見了錯誤，也只有極少數人會伸手去改寫它。",
+                p5: "那些人，是我們在找的。",
+                h2What: "我們做什麼",
+                ulWhat: [
+                    "設計沉浸式壓力場景，測試人類認知邊界",
+                    "研究現實層之間的遞迴漏洞與修補方法",
+                    "保護關鍵資訊不被不當實體取得",
+                    "偶爾——招募"
+                ],
+                p6: "我們不做的是：公開亮相、解釋自己、請求許可。",
+                h2Join: "加入我們",
+                p7: "如果你正在看這個頁面——你已經被注意到了。",
+                p8: "我們招募沒有報名表，沒有面試，沒有 HR 部門。只有測試。",
+                p9: "有些測試是數位的。有些是心理的。有些是曾經發佈的謎題。你可能已經通過了，卻不知道。",
+                p10: "如果你認為自己符合條件，以下是目前開放的入口，請等待我們選中你，時間可能是一至兩個工作日：",
+                sub1: "——「數據刪除」",
+                sub2: "——往年發布的部分謎題，多數已被解除，但仍留下許多未解之謎。",
+                h2Faq: "常見問題（我們知道你會問）",
+                q1: "Q：3301 是邪教嗎？",
+                a1: "A：不是。邪教要你相信。而我們要你質疑。",
+                q2: "Q：加入後會怎樣？",
+                a2: "A：你會看見更多。也會被看見更多。",
+                q3: "Q：如果不合格呢？",
+                a3: "A：你會回到原本的生活。只是偶爾⋯會懷疑這世界是不是真的。",
+                q4: "Q：你們怎麼找到我？",
+                a4: "A：我們沒有找到你。是你找到了這裡。這本身就是答案。",
+                h2Contact: "聯絡方式",
+                p11: "我們沒有客服信箱。沒有 Discord。沒有 Twitter。",
+                p12: "如果你真的有話要說——你會知道怎麼說。",
+                btn1: "柒日循環",
+                btn2: "往年",
+                footer: "©3301<br>本頁面會在每一次刷新時產生微小變異。如果你注意到了——恭喜。"
+            }
+        };
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const d = isEnglish ? langData.en : langData.zh;
+
+            document.getElementById('lang-btn').innerText = d.toggle;
+            document.getElementById('t-syscode').innerText = d.syscode;
+            document.getElementById('t-maintitle').innerText = d.maintitle;
+            document.getElementById('t-p1').innerText = d.p1;
+            document.getElementById('t-h2-about').innerText = d.h2About;
+            document.getElementById('t-p2').innerText = d.p2;
+            document.getElementById('t-p3').innerText = d.p3;
+            document.getElementById('t-p4').innerText = d.p4;
+            document.getElementById('t-p5').innerText = d.p5;
+            document.getElementById('t-h2-what').innerText = d.h2What;
+            
+            const ulWhat = document.getElementById('t-ul-what');
+            ulWhat.innerHTML = '';
+            d.ulWhat.forEach(text => {
+                const li = document.createElement('li');
+                li.innerText = text;
+                ulWhat.appendChild(li);
+            });
+
+            document.getElementById('t-p6').innerText = d.p6;
+            document.getElementById('t-h2-join').innerText = d.h2Join;
+            document.getElementById('t-p7').innerText = d.p7;
+            document.getElementById('t-p8').innerText = d.p8;
+            document.getElementById('t-p9').innerText = d.p9;
+            document.getElementById('t-p10').innerText = d.p10;
+            document.getElementById('t-sub1').innerText = d.sub1;
+            document.getElementById('t-sub2').innerText = d.sub2;
+            document.getElementById('t-h2-faq').innerText = d.h2Faq;
+            document.getElementById('t-q1').innerText = d.q1;
+            document.getElementById('t-a1').innerText = d.a1;
+            document.getElementById('t-q2').innerText = d.q2;
+            document.getElementById('t-a2').innerText = d.a2;
+            document.getElementById('t-q3').innerText = d.q3;
+            document.getElementById('t-a3').innerText = d.a3;
+            document.getElementById('t-q4').innerText = d.q4;
+            document.getElementById('t-a4').innerText = d.a4;
+            document.getElementById('t-h2-contact').innerText = d.h2Contact;
+            document.getElementById('t-p11').innerText = d.p11;
+            document.getElementById('t-p12').innerText = d.p12;
+            document.getElementById('t-btn1').innerText = d.btn1;
+            document.getElementById('t-btn2').innerText = d.btn2;
+            document.getElementById('t-footer').innerHTML = d.footer;
+        }
+    </script>
+</body>
+</html>

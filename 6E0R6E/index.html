@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>606</title>
+    <style>
+        body {
+            background-color: #0b0b0d;
+            color: #2b2b35;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: "Courier New", Courier, monospace;
+            cursor: crosshair;
+        }
+
+        .number-container {
+            position: relative;
+            text-align: center;
+            user-select: none;
+        }
+
+        .main-num {
+            font-size: 14vw;
+            font-weight: 900;
+            letter-spacing: -1vw;
+            color: #1a1a22;
+            text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+            animation: breathe 8s infinite alternate ease-in-out;
+        }
+
+        .sub-glitch {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14vw;
+            font-weight: 900;
+            letter-spacing: -1vw;
+            color: #ff0055;
+            opacity: 0;
+            mix-blend-mode: exclusion;
+            pointer-events: none;
+        }
+
+        @keyframes breathe {
+            0% {
+                transform: scale(1) skew(0deg);
+                color: #15151c;
+            }
+            50% {
+                transform: scale(1.03) skew(-2deg);
+                color: #2b1f28;
+            }
+            100% {
+                transform: scale(0.98) skew(3deg);
+                color: #12181f;
+            }
+        }
+
+        .whisper {
+            position: fixed;
+            bottom: 30px;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #181820;
+            transition: color 0.5s;
+        }
+
+        .whisper:hover {
+            color: #555566;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="number-container">
+        <div class="main-num" id="num">606</div>
+        <div class="sub-glitch" id="glitch">606</div>
+    </div>
+
+    <div class="whisper">do not stay here</div>
+
+    <script>
+        const glitchEl = document.getElementById('glitch');
+        const numEl = document.getElementById('num');
+
+        function randomGlitch() {
+            const time = Math.random() * 4000 + 1000;
+            setTimeout(() => {
+                glitchEl.style.opacity = Math.random() * 0.4;
+                glitchEl.style.transform = `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) scale(${Math.random() * 0.1 + 0.95})`;
+                
+                if (Math.random() > 0.8) {
+                    numEl.style.filter = 'blur(3px)';
+                } else {
+                    numEl.style.filter = 'none';
+                }
+
+                setTimeout(() => {
+                    glitchEl.style.opacity = '0';
+                }, 100);
+
+                randomGlitch();
+            }, time);
+        }
+
+        randomGlitch();
+
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 15;
+            const y = (e.clientY / window.innerHeight - 0.5) * 15;
+            numEl.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+</html>
