@@ -3,68 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiro: 本地 Minecraft 自动化辅助 Agent</title>
+    <title>Shiro - 本地 Minecraft 辅助 Agent</title>
     <style>
+        :root {
+            --bg: #121214;
+            --card-bg: #1a1a1e;
+            --text: #c9d1d9;
+            --muted: #8b949e;
+            --accent: #58a6ff;
+            --border: #30363d;
+            --code-bg: #161b22;
+            --warn-bg: #2d1919;
+            --warn-border: #8b2222;
+        }
+
         body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0;
-            padding: 40px;
-        }
-        .container {
-            max-width: 800px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            max-width: 760px;
             margin: 0 auto;
-            border: 1px solid #30363d;
-            padding: 30px;
-            border-radius: 6px;
-            background-color: #161b22;
+            padding: 40px 20px;
+            font-size: 15px;
         }
+
         h1 {
-            color: #58a6ff;
             font-size: 24px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            color: #ffffff;
+            font-weight: 600;
         }
-        .meta {
-            color: #8b949e;
-            font-size: 14px;
-            margin-bottom: 20px;
+
+        h2 {
+            font-size: 18px;
+            margin-top: 30px;
+            color: #f0f6fc;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 6px;
         }
-        .code-block {
-            background-color: #010409;
-            padding: 15px;
+
+        p, li {
+            color: var(--text);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
+            background-color: var(--code-bg);
+            padding: 2px 6px;
             border-radius: 4px;
-            font-family: monospace;
-            color: #7ee787;
-            overflow-x: auto;
+            font-size: 13px;
+            color: #e6edf3;
+            border: 1px solid var(--border);
         }
-        .contact {
-            margin-top: 20px;
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            border: none;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .meta a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .meta a:hover {
+            text-decoration: underline;
+        }
+
+        .notice-box {
+            background-color: var(--warn-bg);
+            border: 1px solid var(--warn-border);
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-top: 30px;
             font-size: 14px;
         }
-        .contact a {
-            color: #58a6ff;
-            text-decoration: none;
+
+        .notice-box strong {
+            color: #ff7b72;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--muted);
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Shiro: 本地 Minecraft 自动化辅助 Agent</h1>
-        <div class="meta">作者: <strong>NLee_Dev</strong></div>
-        
-        <p>Shiro 是一个专为 Minecraft 设计的本地大模型自动化基建与工程辅助 Agent。通过 macOS 终端本地桥接，实现游戏内的智能坐标运算与自动化建造支持。</p>
-        
-        <h3>快速安装与绑定</h3>
-        <div class="code-block">
-            python3 mac_shiro_cli.py<br>
-            shiro-cli --bind-world Tunnel_Project
-        </div>
 
-        <div class="contact">
-            <p>开发者联系电话: <a href="tel:+8617042060706">+86 170 4206 0706</a></p>
-        </div>
+    <h1>Shiro: 本地 Minecraft 自动化辅助 Agent</h1>
+    <div class="meta">
+        作者: <a href="#">@Lee_Dev</a> | License: MIT | 状态: Beta v0.8.4
     </div>
-</body>
-</html>
+
+    <h2>项目简介</h2>
+    <p>平时打单机搞大型建筑或者刷资源太耗时间了，自己写了这个本地轻量级 AI 辅助脚本。</p>
+    <p>它基于 8B 参数模型的 4-bit 量化版，跑在本地内存里，专门用来帮你处理游戏里各种高重复度的体力活。电脑差不多16GB就够了。</p>
+
+    <h2>主要特性</h2>
+    <ul>
+        <li><strong>完全本地推理：</strong>不需要 API Key，不联网，显存占用 4GB 左右，主打一个省资源。</li>
+        <li><strong>基础空间感知：</strong>能读取本地存档的区块数据，自动计算简单的移动路径和方块放置逻辑。</li>
+        <li><strong>权限限制：</strong>没有系统管理员权限，所有指令都受限制在绑定存档的上下文内。</li>
+    </ul>
+
+    <h2>已知问题与开发者联系</h2>
+    <p>这只是个人闲暇时间写的测试版本，异常处理做得很粗糙：</p>
+    <ul>
+        <li>浮点数坐标计算有 Bug，遇到某些边界坐标（比如 XYZ 负坐标重叠区域）可能会触发几何溢出导致渲染卡死。</li>
+        <li>如果遇到游戏闪退或存盘不同步，<strong>请直接在终端按 <code>Ctrl+C</code> 或强退进程</strong>。</li>
+    </ul>
+
+    <div class="notice-box">
+        <strong>遇到未捕获严重错误？</strong><br>
+        如果脚本卡死导致存档数据异常，或者跑出无法解决的崩溃循环，可以随时拨打我的测试机电话（自动转接）：<br>
+        <code>Dev Line: +86 170 4206 0706</code>
+    </div>
+
+    <footer>
+        <p>Shiro Agent Project &copy; 2026. Built with vanilla HTML & CSS.</p>
+    </footer>
+
 </body>
 </html>
